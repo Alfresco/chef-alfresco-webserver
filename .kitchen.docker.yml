@@ -1,0 +1,47 @@
+# When editing this file, remember that http://www.yamllint.com is your friend :-)
+---
+driver:
+  name: docker
+  use_sudo: false
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+  sudo: false
+
+platforms:
+  - name: centos-7
+    driver_config:
+      image: centos:7
+      platform: centos
+      run_command: /usr/sbin/init
+      privileged: true
+      forward:
+      - 80:80
+
+suites:
+  - name: nginx
+    run_list:
+      - recipe[chef-alfresco-webserver::nginx]
+      - recipe[chef-alfresco-webserver::nginx-conf]
+    attributes: {
+      'nginx' : {
+        'use_nossl_config' : true,
+        'public_port': 80,
+        'public_portssl': 443,
+        'public_protocol': https,
+        'public_hostname': localhost,
+        'internal_hostname': 127.0.0.1,
+        'internal_protocol': 'http',
+        'internal_secure_port': 9001,
+        'certs': {
+          'filename': 'alfresco',
+          'ssl_folder': '/etc/pki/tls/certs'
+         },
+         'errorpages': {
+           'error_folder': '/var/www/html/errors'
+          }
+      }
+    }

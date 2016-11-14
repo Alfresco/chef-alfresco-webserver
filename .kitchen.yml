@@ -1,0 +1,49 @@
+# When editing this file, remember that http://www.yamllint.com is your friend :-)
+---
+
+driver:
+  name: vagrant
+  customize:
+    memory: 4096
+    cpus: 2
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-7.2
+    driver_config:
+      network:
+      - ["private_network", {ip: "192.168.33.23"}]
+
+    driver:
+      box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-7.2_chef-provisionerless.box
+
+
+suites:
+  - name: default
+    run_list:
+      - recipe[chef-alfresco-webserver::default]
+      - recipe[chef-alfresco-webserver::nginx-conf]
+    attributes: {
+      'nginx' : {
+        'use_nossl_config' : true,
+        'public_port': 80,
+        'public_portssl': 443,
+        'public_protocol': https,
+        'public_hostname': localhost,
+        'internal_hostname': 127.0.0.1,
+        'internal_protocol': 'http',
+        'internal_secure_port': 9001,
+        'certs': {
+          'filename': 'alfresco',
+          'ssl_folder': '/etc/pki/tls/certs'
+         },
+         'errorpages': {
+           'error_folder': '/var/www/html/errors'
+          }
+      }
+    }
