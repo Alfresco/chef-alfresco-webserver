@@ -2,7 +2,6 @@ describe package('nginx') do
   it { should be_installed }
 end
 
-
 control '01' do
   impact 0.7
   title 'Verify nginx service'
@@ -13,7 +12,6 @@ control '01' do
     it { should be_running }
   end
 end
-
 
 web_user = 'www-data'
 web_user = 'nginx' if os[:family] == 'redhat'
