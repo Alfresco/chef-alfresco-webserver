@@ -9,7 +9,6 @@ provisioner:
 
 verifier:
   name: inspec
-  sudo: false
 
 platforms:
   - name: centos-7
@@ -28,6 +27,10 @@ suites:
       - recipe[chef-alfresco-webserver::nginx]
       - recipe[chef-alfresco-webserver::nginx-conf]
       - recipe[nginx-hardening]
+    verifier:
+      inspec_tests:
+        - name: nginx-hardening
+          git: https://github.com/Alfresco/tests-nginx-hardening
     attributes: {
       'nginx' : {
         'use_nossl_config' : true,

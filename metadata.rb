@@ -1,5 +1,5 @@
 name             'chef-alfresco-webserver'
-maintainer       'Enzo Rivello'
+maintainer       'Alfresco Tooling & Automation'
 maintainer_email 'enzo.rivello@alfresco.com'
 license          'All rights reserved'
 description      'Installs/Configures chef-alfresco-webserver'
