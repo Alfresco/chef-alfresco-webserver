@@ -16,7 +16,14 @@ default['nginx']['json_logging_enabled'] = false
 default['nginx']['json_log_format'] = "main '{ \"@timestamp\": \"$time_iso8601\", \"@fields\": { \"remote_addr\": \"$remote_addr\", \"remote_user\": \"$remote_user\", \"x_forwarded_for\": \"$http_x_forwarded_for\", \"proxy_protocol_addr\": \"$proxy_protocol_addr\", \"body_bytes_sent\": \"$body_bytes_sent\", \"request_time\": \"$request_time\", \"body_bytes_sent\":\"$body_bytes_sent\", \"bytes_sent\":\"$bytes_sent\", \"status\": \"$status\", \"request\": \"$request\", \"request_method\": \"$request_method\", \"http_cookie\": \"$http_cookie\", \"http_referrer\": \"$http_referer\", \"http_user_agent\": \"$http_user_agent\" } }'"
 
 # Nginx configurations (used by nginx.cfg.erb)
-default['nginx']['general']['user'] = 'nginx'
+nginx_user = case node['platform_family']
+             when 'rhel'
+               'nginx'
+             when 'debian'
+               'www-data'
+             end
+
+default['nginx']['general']['user'] = nginx_user
 default['nginx']['general']['worker_processes'] = 2
 default['nginx']['events']['worker_connections'] = 1024
 
