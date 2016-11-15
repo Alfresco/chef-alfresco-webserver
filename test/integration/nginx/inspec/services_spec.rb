@@ -2,7 +2,7 @@ describe package('nginx') do
   it { should be_installed }
 end
 
-control '01' do
+control 'nginx-01' do
   impact 0.7
   title 'Verify nginx service'
   desc 'Ensures nginx service is up and running'

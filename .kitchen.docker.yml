@@ -30,7 +30,7 @@ suites:
     verifier:
       inspec_tests:
         - name: nginx-hardening
-          git: https://github.com/dev-sec/tests-nginx-hardening
+          git: https://github.com/Alfresco/tests-nginx-hardening
     attributes: {
       'nginx' : {
         'use_nossl_config' : true,
