@@ -26,6 +26,7 @@ platforms:
 suites:
   - name: nginx
     run_list:
+      - recipe[netstat]
       - recipe[nginx-hardening::upgrades]
       - recipe[chef-alfresco-webserver::nginx]
       - recipe[chef-alfresco-webserver::nginx-conf]
