@@ -4,7 +4,6 @@ options = {
   assignment_re: /^\s*([^:]*?)\s*\ \s*(.*?)\s*;$/
 }
 
-
 control 'nginx-11' do
   impact 0.2
   title 'Custom Alfresco NginX configuration'
@@ -15,10 +14,8 @@ control 'nginx-11' do
     its('proxy_pass') { should eq 'http://127.0.0.1:9001' }
   end
 
-
   describe parse_config_file(nginx_conf, options) do
     its('listen') { should eq '80' }
     its('server_name') { should eq '127.0.0.1' }
   end
-
 end
