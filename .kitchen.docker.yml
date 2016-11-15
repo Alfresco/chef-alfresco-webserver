@@ -9,7 +9,6 @@ provisioner:
 
 verifier:
   name: inspec
-  sudo: false
 
 platforms:
   - name: centos-7

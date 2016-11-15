@@ -32,6 +32,7 @@ suites:
       - recipe[nginx-hardening]
     verifier:
       inspec_tests:
+        - path: test/integration/nginx/inspec/*
         - name: nginx-hardening
           git: https://github.com/dev-sec/tests-nginx-hardening
     attributes: {
