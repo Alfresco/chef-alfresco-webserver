@@ -17,11 +17,11 @@ default['nginx']['json_log_format'] = "main '{ \"@timestamp\": \"$time_iso8601\"
 
 # Nginx configurations (used by nginx.cfg.erb)
 nginx_user = case node[:platform]
-when 'redhat', 'centos'
- 'nginx'
-else
- 'www-data'
-end
+             when 'redhat', 'centos'
+               'nginx'
+             else
+               'www-data'
+             end
 
 default['nginx']['general']['user'] = nginx_user
 default['nginx']['general']['worker_processes'] = 2
