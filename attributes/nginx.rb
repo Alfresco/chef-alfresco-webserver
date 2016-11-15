@@ -4,11 +4,11 @@ default['nginx']['conf_template'] = 'nginx.conf.erb'
 default['nginx']['conf_cookbook'] = 'chef-alfresco-webserver'
 
 # Default Nginx parameters, inherited by Alfresco attributes
-default['nginx']['port'] = node['nginx']['public_port']
-default['nginx']['proxy_port'] = node['nginx']['internal_secure_port']
-default['nginx']['ssl_port'] = node['nginx']['public_portssl']
-default['nginx']['public_hostname'] = node['nginx']['public_hostname']
-default['nginx']['proxy_hostname'] = node['nginx']['internal_hostname']
+default['nginx']['port'] = node['webserver']['public_port']
+default['nginx']['proxy_port'] = node['webserver']['internal_secure_port']
+default['nginx']['ssl_port'] = node['webserver']['public_portssl']
+default['nginx']['public_hostname'] = node['webserver']['public_hostname']
+default['nginx']['proxy_hostname'] = node['webserver']['internal_hostname']
 default['nginx']['log_level'] = 'info'
 
 # JSON logging
@@ -79,7 +79,7 @@ default['nginx']['server']['proxy']['listen'] = node['nginx']['port']
 default['nginx']['server']['proxy']['server_name'] = node['nginx']['proxy_hostname']
 
 default['nginx']['server']['proxy']['locations']['^~ /var/www/html/errors/']['internal'] = ''
-default['nginx']['server']['proxy']['locations']['^~ /var/www/html/errors/']['root'] = node['nginx']['errorpages']['error_folder']
+default['nginx']['server']['proxy']['locations']['^~ /var/www/html/errors/']['root'] = node['webserver']['error_pages']['error_folder']
 
 default['nginx']['server']['proxy']['locations']['/']['proxy_next_upstream'] = 'error timeout invalid_header http_500 http_502 http_503 http_504'
 default['nginx']['server']['proxy']['locations']['/']['proxy_redirect'] = 'off'
@@ -90,14 +90,13 @@ default['nginx']['server']['proxy']['locations']['/']['proxy_set_headers'] = [
   'X-Forwarded-For $proxy_add_x_forwarded_for',
   'X-Forwarded-Proto $scheme'
 ]
-default['nginx']['server']['proxy']['locations']['/']['proxy_pass'] = "#{node['nginx']['internal_protocol']}://#{node['nginx']['proxy_hostname']}:#{node['nginx']['proxy_port']}"
+default['nginx']['server']['proxy']['locations']['/']['proxy_pass'] = "#{node['webserver']['internal_protocol']}://#{node['nginx']['proxy_hostname']}:#{node['nginx']['proxy_port']}"
 # Set files larger than 1M to stream rather than cache
 default['nginx']['server']['proxy']['locations']['/']['proxy_max_temp_file_size'] = '1M'
 
 # SSL configurations
-default['nginx']['use_nossl_config'] = false
-default['nginx']['ssl_folder'] = node['nginx']['certs']['ssl_folder']
-default['nginx']['ssl_filename'] = node['nginx']['certs']['filename']
+default['nginx']['ssl_folder'] = node['webserver']['certs']['ssl_folder']
+default['nginx']['ssl_filename'] = node['webserver']['certs']['filename']
 
 default['nginx']['ssl_server_redirect']['listen'] = node['nginx']['port']
 default['nginx']['ssl_server_redirect']['server_name'] = node['nginx']['public_hostname']
@@ -115,7 +114,7 @@ default['nginx']['ssl_server_proxy']['ssl_stapling'] = 'on'
 default['nginx']['ssl_server_proxy']['ssl_stapling_verify'] = 'on'
 default['nginx']['ssl_server_proxy']['ssl_protocols'] = 'TLSv1 TLSv1.1 TLSv1.2'
 
-default['nginx']['ssl_server_proxy']['ssl_dhparam'] = "#{node['nginx']['certs']['ssl_folder']}/#{node['nginx']['certs']['filename']}.dhparam"
+default['nginx']['ssl_server_proxy']['ssl_dhparam'] = "#{node['nginx']['ssl_folder']}/#{node['nginx']['filename']}.dhparam"
 
 # Use Intermediate Cipher Compatibility
 # https://wiki.mozilla.org/Security/Server_Side_TLS#Intermediate_compatibility_.28default.29

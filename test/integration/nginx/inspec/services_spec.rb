@@ -13,6 +13,12 @@ control '01' do
   end
 end
 
+
+describe port(80) do
+  it { should be_listening }
+  its('processes') { should include /nginx/}
+end
+
 web_user = 'www-data'
 web_user = 'nginx' if os[:family] == 'redhat'
 
