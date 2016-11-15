@@ -24,12 +24,16 @@ platforms:
 
 
 suites:
-  - name: default
+  - name: nginx
     run_list:
       - recipe[nginx-hardening::upgrades]
       - recipe[chef-alfresco-webserver::nginx]
       - recipe[chef-alfresco-webserver::nginx-conf]
-      - recipe[nginx-hardening] 
+      - recipe[nginx-hardening]
+    verifier:
+      inspec_tests:
+        - name: nginx-hardening
+          git: https://github.com/dev-sec/tests-nginx-hardening
     attributes: {
       'nginx' : {
         'use_nossl_config' : true,

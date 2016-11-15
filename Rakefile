@@ -43,7 +43,7 @@ namespace :integration do
 
   desc 'Run integration tests with kitchen-vagrant'
   task :vagrant, [:regexp, :action] do |_t, args|
-    run_kitchen(args.action, args.regexp)
+    run_kitchen(args.action, args.regexp, local_config: '.kitchen.yml')
   end
 
   desc 'Run integration tests with kitchen-docker'
