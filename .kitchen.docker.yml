@@ -24,8 +24,10 @@ platforms:
 suites:
   - name: nginx
     run_list:
+      - recipe[nginx-hardening::upgrades]
       - recipe[chef-alfresco-webserver::nginx]
       - recipe[chef-alfresco-webserver::nginx-conf]
+      - recipe[nginx-hardening]
     attributes: {
       'nginx' : {
         'use_nossl_config' : true,
