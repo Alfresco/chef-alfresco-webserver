@@ -4,7 +4,9 @@ sudo: required
 services: docker
 
 before_install: curl -L https://www.getchef.com/chef/install.sh | sudo bash -s -- -P chefdk -v 0.19.6
-install: chef exec bundle
+install:
+  - chef exec bundle
+  - chef exec berks
 
 before_script: sudo iptables -L DOCKER || sudo iptables -N DOCKER
 
