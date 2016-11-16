@@ -11,3 +11,4 @@ version          '0.1.0'
 
 depends 'nginx', '~> 2.7.6'
 depends 'netstat', '~> 0.1.0'
+depends 'nginx-hardening'
