@@ -19,6 +19,14 @@ RSpec.describe 'alfresco-webserver::nginx' do
     stub_command('semanage port -l | grep 2100').and_return('')
   end
 
+  it 'should include the nginx hardening upgrades recipe' do
+    expect(chef_run).to include_recipe('nginx-hardening::upgrades')
+  end
+
+  it 'should delete the default.conf file' do
+    expect(chef_run).to delete_file('/etc/nginx/conf.d/default.conf')
+  end
+
   it 'should include the nginx::repo recipe' do
     expect(chef_run).to include_recipe('nginx::repo')
   end

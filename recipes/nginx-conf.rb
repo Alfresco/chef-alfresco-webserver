@@ -11,7 +11,7 @@ end
 
 # Patch nginx configurations, making sure the service runs
 include_recipe 'nginx::commons_conf'
-include_recipe 'nginx-hardening'
+include_recipe 'nginx-hardening::default'
 
 service_actions = [:enable, :start]
 service 'nginx' do
