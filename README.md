@@ -19,43 +19,43 @@ The default choice is NginX, but it can be expanded to use your own webserver.
     <td><tt>nginx</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['public_port']</tt></td>
+    <td><tt>default['webserver']['port']</tt></td>
     <td>Int</td>
-    <td>Public http port</td>
+    <td>Webserver public port</td>
     <td><tt>80</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['public_port_ssl']</tt></td>
+    <td><tt>default['webserver']['port_ssl']</tt></td>
     <td>Int</td>
     <td>Public SSL Port</td>
     <td><tt>true</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['public_protocol']</tt></td>
+    <td><tt>default['webserver']['protocol']</tt></td>
     <td>String</td>
     <td>Default protocol to use</td>
     <td><tt>https</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['public_hostname']</tt></td>
+    <td><tt>default['webserver']['hostname']</tt></td>
     <td>String</td>
-    <td>The hostname of the machine</td>
+    <td>Machine hostname</td>
     <td><tt>localhost</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['internal_hostname']</tt></td>
+    <td><tt>default['webserver']['lb_hostname']</tt></td>
     <td>String</td>
-    <td>Address of the internal load-balancer</td>
+    <td>Hostname/Address of the internal load-balancer</td>
     <td><tt>127.0.0.1</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['internal_protocol']</tt></td>
+    <td><tt>default['webserver']['lb_protocol']</tt></td>
     <td>String</td>
     <td>Protocol used to talk to the internal load-balancer</td>
     <td><tt>http</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['internal_secure_port']</tt></td>
+    <td><tt>default['webserver']['lb_port']</tt></td>
     <td>Int</td>
     <td>Port of the internal load-balancer</td>
     <td><tt>9001</tt></td>
@@ -63,7 +63,7 @@ The default choice is NginX, but it can be expanded to use your own webserver.
   <tr>
     <td><tt>default['webserver']['use_nossl_config']</tt></td>
     <td>Boolean</td>
-    <td>whether to avoid or use ssl</td>
+    <td>Whether to avoid or use ssl</td>
     <td><tt>true</tt></td>
   </tr>
   <tr>
@@ -106,12 +106,18 @@ And add it's reference inside your `metadata.rb` file:
 
 ### chef-alfresco-webserver::default
 
-Include `chef-alfresco-webserver` in your node's `run_list`:
+The cookbook is divided in 2 recipes:
+
+- `alfresco-webserver::default` will install and upgrade the webserver of your choice ( specified under the `default['webserver']['engine']` attribute)
+- `alfresco-webserver::start` will configure and start the webserver to accept external connections and pass the information to the internal load-balancer.
+
+Include `alfresco-webserver` in your node `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[alfresco-webserver::default]"
+    "recipe[alfresco-webserver::default]",
+    "recipe[alfresco-webserver::start]"
   ]
 }
 ```
