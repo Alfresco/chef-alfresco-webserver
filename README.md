@@ -19,33 +19,33 @@ The default choice is NginX, but it can be expanded to use your own webserver.
     <td><tt>nginx</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['public_port']</tt></td>
+    <td><tt>default['webserver']['port']</tt></td>
     <td>Int</td>
-    <td>Public http port</td>
+    <td>Webserver public port</td>
     <td><tt>80</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['public_port_ssl']</tt></td>
+    <td><tt>default['webserver']['port_ssl']</tt></td>
     <td>Int</td>
     <td>Public SSL Port</td>
     <td><tt>true</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['public_protocol']</tt></td>
+    <td><tt>default['webserver']['protocol']</tt></td>
     <td>String</td>
     <td>Default protocol to use</td>
     <td><tt>https</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['public_hostname']</tt></td>
+    <td><tt>default['webserver']['hostname']</tt></td>
     <td>String</td>
-    <td>The hostname of the machine</td>
+    <td>Machine hostname</td>
     <td><tt>localhost</tt></td>
   </tr>
   <tr>
     <td><tt>default['webserver']['lb_hostname']</tt></td>
     <td>String</td>
-    <td>Address of the internal load-balancer</td>
+    <td>Hostname/Address of the internal load-balancer</td>
     <td><tt>127.0.0.1</tt></td>
   </tr>
   <tr>
@@ -63,7 +63,7 @@ The default choice is NginX, but it can be expanded to use your own webserver.
   <tr>
     <td><tt>default['webserver']['use_nossl_config']</tt></td>
     <td>Boolean</td>
-    <td>whether to avoid or use ssl</td>
+    <td>Whether to avoid or use ssl</td>
     <td><tt>true</tt></td>
   </tr>
   <tr>
