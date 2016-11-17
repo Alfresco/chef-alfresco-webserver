@@ -4,10 +4,10 @@ default['nginx']['conf_template'] = 'nginx.conf.erb'
 default['nginx']['conf_cookbook'] = 'alfresco-webserver'
 
 # Default Nginx parameters, inherited by Alfresco attributes
-default['nginx']['port'] = node['webserver']['public_port']
+default['nginx']['port'] = node['webserver']['port']
 default['nginx']['proxy_port'] = node['webserver']['lb_port']
-default['nginx']['ssl_port'] = node['webserver']['public_portssl']
-default['nginx']['public_hostname'] = node['webserver']['public_hostname']
+default['nginx']['ssl_port'] = node['webserver']['port_ssl']
+default['nginx']['public_hostname'] = node['webserver']['hostname']
 default['nginx']['proxy_hostname'] = node['webserver']['lb_hostname']
 default['nginx']['log_level'] = 'info'
 

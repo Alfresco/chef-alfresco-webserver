@@ -1,8 +1,8 @@
 default['webserver']['engine'] = 'nginx'
-default['webserver']['public_port'] = 80
-default['webserver']['public_port_ssl'] = 443
-default['webserver']['public_protocol'] = 'https'
-default['webserver']['public_hostname'] = 'localhost'
+default['webserver']['port'] = 80
+default['webserver']['port_ssl'] = 443
+default['webserver']['protocol'] = 'https'
+default['webserver']['hostname'] = 'localhost'
 default['webserver']['lb_hostname'] = '127.0.0.1'
 default['webserver']['lb_protocol'] = 'http'
 default['webserver']['lb_port'] = 9001
