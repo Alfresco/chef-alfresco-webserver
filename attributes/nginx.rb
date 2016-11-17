@@ -5,10 +5,10 @@ default['nginx']['conf_cookbook'] = 'alfresco-webserver'
 
 # Default Nginx parameters, inherited by Alfresco attributes
 default['nginx']['port'] = node['webserver']['public_port']
-default['nginx']['proxy_port'] = node['webserver']['internal_secure_port']
+default['nginx']['proxy_port'] = node['webserver']['lb_port']
 default['nginx']['ssl_port'] = node['webserver']['public_portssl']
 default['nginx']['public_hostname'] = node['webserver']['public_hostname']
-default['nginx']['proxy_hostname'] = node['webserver']['internal_hostname']
+default['nginx']['proxy_hostname'] = node['webserver']['lb_hostname']
 default['nginx']['log_level'] = 'info'
 
 # JSON logging
@@ -90,7 +90,7 @@ default['nginx']['server']['proxy']['locations']['/']['proxy_set_headers'] = [
   'X-Forwarded-For $proxy_add_x_forwarded_for',
   'X-Forwarded-Proto $scheme'
 ]
-default['nginx']['server']['proxy']['locations']['/']['proxy_pass'] = "#{node['webserver']['internal_protocol']}://#{node['nginx']['proxy_hostname']}:#{node['nginx']['proxy_port']}"
+default['nginx']['server']['proxy']['locations']['/']['proxy_pass'] = "#{node['webserver']['lb_protocol']}://#{node['nginx']['proxy_hostname']}:#{node['nginx']['proxy_port']}"
 # Set files larger than 1M to stream rather than cache
 default['nginx']['server']['proxy']['locations']['/']['proxy_max_temp_file_size'] = '1M'
 

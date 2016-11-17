@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe 'alfresco-webserver::nginx-conf' do
+RSpec.describe 'alfresco-webserver::nginx-start' do
   let(:chef_run) do
     ChefSpec::SoloRunner.new(
       platform: 'centos',

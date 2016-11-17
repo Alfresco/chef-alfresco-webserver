@@ -27,7 +27,7 @@ suites:
   - name: nginx
     run_list:
       - recipe[netstat]
-      - recipe[alfresco-webserver::nginx]
+      - recipe[alfresco-webserver::default]
       - recipe[alfresco-webserver::nginx-conf]
     verifier:
       inspec_tests:

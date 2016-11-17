@@ -43,19 +43,19 @@ The default choice is NginX, but it can be expanded to use your own webserver.
     <td><tt>localhost</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['internal_hostname']</tt></td>
+    <td><tt>default['webserver']['lb_hostname']</tt></td>
     <td>String</td>
     <td>Address of the internal load-balancer</td>
     <td><tt>127.0.0.1</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['internal_protocol']</tt></td>
+    <td><tt>default['webserver']['lb_protocol']</tt></td>
     <td>String</td>
     <td>Protocol used to talk to the internal load-balancer</td>
     <td><tt>http</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['internal_secure_port']</tt></td>
+    <td><tt>default['webserver']['lb_port']</tt></td>
     <td>Int</td>
     <td>Port of the internal load-balancer</td>
     <td><tt>9001</tt></td>
