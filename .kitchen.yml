@@ -28,27 +28,8 @@ suites:
     run_list:
       - recipe[netstat]
       - recipe[alfresco-webserver::default]
-      - recipe[alfresco-webserver::nginx-conf]
+      - recipe[alfresco-webserver::start]
     verifier:
       inspec_tests:
         - name: nginx-hardening
           git: https://github.com/Alfresco/tests-nginx-hardening
-    attributes: {
-      'nginx' : {
-        'use_nossl_config' : true,
-        'public_port': 80,
-        'public_portssl': 443,
-        'public_protocol': https,
-        'public_hostname': localhost,
-        'internal_hostname': 127.0.0.1,
-        'internal_protocol': 'http',
-        'internal_secure_port': 9001,
-        'certs': {
-          'filename': 'alfresco',
-          'ssl_folder': '/etc/pki/tls/certs'
-         },
-         'errorpages': {
-           'error_folder': '/var/www/html/errors'
-          }
-      }
-    }
