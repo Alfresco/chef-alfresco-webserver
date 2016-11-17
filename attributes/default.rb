@@ -1,3 +1,4 @@
+default['webserver']['engine'] = 'nginx'
 default['webserver']['use_nossl_config'] = true
 default['webserver']['public_port'] = 80
 default['webserver']['public_port_ssl'] = 443
