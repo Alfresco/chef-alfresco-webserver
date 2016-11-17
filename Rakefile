@@ -14,6 +14,11 @@ task :foodcritic do
   sh 'foodcritic -f any .'
 end
 
+desc 'Runs ChefSpec tests'
+task :chefspec do
+  sh 'rspec'
+end
+
 desc 'Run Test Kitchen integration tests'
 namespace :integration do
   # Gets a collection of instances.
@@ -52,4 +57,4 @@ namespace :integration do
   end
 end
 
-task default: [:foodcritic, :cookstyle]
+task default: [:foodcritic, :cookstyle, :chefspec]
