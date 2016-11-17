@@ -1,4 +1,4 @@
-name             'chef-alfresco-webserver'
+name             'alfresco-webserver'
 maintainer       'Alfresco Tooling & Automation'
 maintainer_email 'enzo.rivello@alfresco.com'
 license          'All rights reserved'

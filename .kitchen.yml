@@ -27,8 +27,8 @@ suites:
   - name: nginx
     run_list:
       - recipe[netstat]
-      - recipe[chef-alfresco-webserver::nginx]
-      - recipe[chef-alfresco-webserver::nginx-conf]
+      - recipe[alfresco-webserver::nginx]
+      - recipe[alfresco-webserver::nginx-conf]
     verifier:
       inspec_tests:
         - name: nginx-hardening

@@ -1,7 +1,7 @@
 # Chef community cookbook attributes
 default['nginx']['upstream_repository'] = "http://nginx.org/packages/mainline/centos/#{node['platform_version'].to_i}/$basearch/"
 default['nginx']['conf_template'] = 'nginx.conf.erb'
-default['nginx']['conf_cookbook'] = 'chef-alfresco-webserver'
+default['nginx']['conf_cookbook'] = 'alfresco-webserver'
 
 # Default Nginx parameters, inherited by Alfresco attributes
 default['nginx']['port'] = node['webserver']['public_port']

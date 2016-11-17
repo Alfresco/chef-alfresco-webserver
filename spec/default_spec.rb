@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe 'chef-alfresco-webserver::default' do
+RSpec.describe 'alfresco-webserver::default' do
   let(:chef_run) do
     ChefSpec::SoloRunner.new(
       platform: 'centos',
@@ -20,6 +20,6 @@ RSpec.describe 'chef-alfresco-webserver::default' do
   end
 
   it 'should include nginx as default recipe' do
-    expect(chef_run).to include_recipe('chef-alfresco-webserver::nginx')
+    expect(chef_run).to include_recipe('alfresco-webserver::nginx')
   end
 end
