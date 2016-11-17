@@ -18,7 +18,7 @@ RSpec.describe 'alfresco-webserver::nginx-conf' do
     expect(chef_run).to include_recipe('nginx::commons_conf')
   end
 
-  it 'should include the nginx::commons_conf recipe' do
+  it 'should include the nginx-hardening::default recipe by default' do
     expect(chef_run).to include_recipe('nginx-hardening::default')
   end
 

@@ -1,5 +1,4 @@
 default['webserver']['engine'] = 'nginx'
-default['webserver']['use_nossl_config'] = true
 default['webserver']['public_port'] = 80
 default['webserver']['public_port_ssl'] = 443
 default['webserver']['public_protocol'] = 'https'
@@ -7,6 +6,8 @@ default['webserver']['public_hostname'] = 'localhost'
 default['webserver']['internal_hostname'] = '127.0.0.1'
 default['webserver']['internal_protocol'] = 'http'
 default['webserver']['internal_secure_port'] = 9001
+default['webserver']['use_nossl_config'] = true
 default['webserver']['certs']['filename'] = 'alfresco'
 default['webserver']['certs']['ssl_folder'] = '/etc/pki/tls/certs'
 default['webserver']['error_pages']['error_folder'] = '/var/www/html/error_pages'
+default['webserver']['apply_hardening'] = true
