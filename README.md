@@ -106,12 +106,18 @@ And add it's reference inside your `metadata.rb` file:
 
 ### chef-alfresco-webserver::default
 
-Include `chef-alfresco-webserver` in your node's `run_list`:
+The cookbook is divided in 2 recipes:
+
+- `alfresco-webserver::default` will install and upgrade the webserver of your choice ( specified under the `default['webserver']['engine']` attribute)
+- `alfresco-webserver::start` will configure and start the webserver to accept external connections and pass the information to the internal load-balancer.
+
+Include `alfresco-webserver` in your node `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[alfresco-webserver::default]"
+    "recipe[alfresco-webserver::default]",
+    "recipe[alfresco-webserver::start]"
   ]
 }
 ```
