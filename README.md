@@ -28,7 +28,7 @@ The default choice is NginX, but it can be expanded to use your own webserver.
     <td><tt>default['webserver']['port_ssl']</tt></td>
     <td>Int</td>
     <td>Public SSL Port</td>
-    <td><tt>true</tt></td>
+    <td><tt>443</tt></td>
   </tr>
   <tr>
     <td><tt>default['webserver']['hostname']</tt></td>
