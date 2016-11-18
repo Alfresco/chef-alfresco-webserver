@@ -85,7 +85,7 @@ The default choice is NginX, but it can be expanded to use your own webserver.
     <td><tt>/var/www/html/error_pages</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['harden']['error_folder']</tt></td>
+    <td><tt>default['webserver']['harden']</tt></td>
     <td>Boolean</td>
     <td>wheter you want this installation to be hardened or not</td>
     <td><tt>true</tt></td>
@@ -95,13 +95,16 @@ The default choice is NginX, but it can be expanded to use your own webserver.
 ## Usage
 
 Include this cookbook in your Berksfile:
-
-`cookbook 'alfresco-webserver', git:'https://github.com/Alfresco/chef-alfresco-webserver' `
-
+```
+cookbook 'alfresco-webserver', git:'https://github.com/Alfresco/chef-alfresco-webserver', tag: 'v0.7.0'
+cookbook 'nginx-hardening', git: 'https://github.com/dev-sec/chef-nginx-hardening' (only if you want hardening)
+```
 And add it's reference inside your `metadata.rb` file:
 
-`depends 'alfresco-webserver'`
-
+```
+depends 'alfresco-webserver'
+depends 'nginx-hardening' (only if you want hardening)
+```
 
 
 ### chef-alfresco-webserver::default
