@@ -1,3 +1,5 @@
+include_recipe 'nginx-hardening::upgrades' if node['webserver']['apply_hardening']
+
 # Delete Centos default configuration
 # Replaced by /etc/nginx/sites-enabled/*
 file '/etc/nginx/conf.d/default.conf' do

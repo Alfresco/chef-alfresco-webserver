@@ -14,6 +14,11 @@ task :foodcritic do
   sh 'foodcritic -f any .'
 end
 
+desc 'Runs ChefSpec tests'
+task :chefspec do
+  sh 'rspec'
+end
+
 desc 'Run Test Kitchen integration tests'
 namespace :integration do
   # Gets a collection of instances.
@@ -43,7 +48,7 @@ namespace :integration do
 
   desc 'Run integration tests with kitchen-vagrant'
   task :vagrant, [:regexp, :action] do |_t, args|
-    run_kitchen(args.action, args.regexp)
+    run_kitchen(args.action, args.regexp, local_config: '.kitchen.yml')
   end
 
   desc 'Run integration tests with kitchen-docker'
@@ -52,4 +57,4 @@ namespace :integration do
   end
 end
 
-task default: [:foodcritic, :cookstyle]
+task default: [:foodcritic, :cookstyle, :chefspec]
