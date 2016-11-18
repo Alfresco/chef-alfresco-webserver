@@ -31,12 +31,6 @@ The default choice is NginX, but it can be expanded to use your own webserver.
     <td><tt>true</tt></td>
   </tr>
   <tr>
-    <td><tt>default['webserver']['protocol']</tt></td>
-    <td>String</td>
-    <td>Default protocol to use</td>
-    <td><tt>https</tt></td>
-  </tr>
-  <tr>
     <td><tt>default['webserver']['hostname']</tt></td>
     <td>String</td>
     <td>Machine hostname</td>
