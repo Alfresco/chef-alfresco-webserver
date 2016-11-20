@@ -1,9 +1,9 @@
 name             'alfresco-webserver'
 maintainer       'Alfresco Tooling & Automation'
 maintainer_email 'enzo.rivello@alfresco.com'
-license          'All rights reserved'
+license          'Apache 2.0'
 description      'Installs/Configures chef-alfresco-webserver'
-long_description 'Installs/Configures chef-alfresco-webserver'
+long_description 'Installs and Configures the webserver part of the chef-alfresco stack'
 
 issues_url       'https://github.com/Alfresco/chef-alfresco-webserver/issues'
 source_url       'https://github.com/Alfresco/chef-alfresco-webserver'
