@@ -15,7 +15,7 @@ The default choice is NginX, but it can be expanded to use your own webserver.
 | default['webserver']['port'] | Int  |  Webserver public port |  80 |
 | default['webserver']['port_ssl'] | Int  |  Public SSL Port |  443 |
 | default['webserver']['hostname']  | String  | Matching hostname  |  localhost |
-| default['webserver']['lb_hostname'] | String | Hostname/Address of the internal load-balancer  | localhost  |
+| default['webserver']['lb_hostname'] | String | Hostname/Address of the internal load-balancer  | 127.0.0.1  |
 | default['webserver']['lb_protocol'] | String  |  Protocol used to talk to the internal load-balancer |  http |
 | default['webserver']['lb_port'] | Int  | Port of the internal load-balancer | 9001 |
 | default['webserver']['use_nossl_config']  | Boolean  | Wheter to avoid or use ssl |  localhost |
