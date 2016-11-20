@@ -7,7 +7,7 @@ long_description 'Installs/Configures chef-alfresco-webserver'
 
 issues_url       'https://github.com/Alfresco/chef-alfresco-webserver/issues'
 source_url       'https://github.com/Alfresco/chef-alfresco-webserver'
-version          '0.7.1'
+version          '0.7.2'
 
 depends 'nginx', '~> 2.7.6'
 depends 'netstat', '~> 0.1.0'
