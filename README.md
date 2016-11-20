@@ -22,7 +22,7 @@ The default choice is NginX, but it can be expanded to use your own webserver.
 | default['webserver']['certs']['filename']  | String  | SSL Certs filename  |  alfresco |
 | default['webserver']'certs']['ssl_folder']| String | Folder where the SSL certs will be stored  | /etc/pki/tls/certs  |
 | default['webserver']['error_pages']['error_folder'] | String  |  Where the error pages will be stored |  /var/www/html/error_pages |
-| default['webserver']['harden'] | Boolean  | wWeter you want this installation to be hardened or no | 9001 |
+| default['webserver']['harden'] | Boolean  | Weter you want this installation to be hardened or no | true |
 
 
 ## Usage
