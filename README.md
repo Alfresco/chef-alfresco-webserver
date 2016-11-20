@@ -1,4 +1,7 @@
-# chef-alfresco-webserver
+# chef-alfresco-webserver cookbook
+[![Build Status](https://travis-ci.org/Alfresco/chef-alfresco-webserver.svg)](https://travis-ci.org/Alfresco/chef-alfresco-webserver)
+[![Cookbook](http://img.shields.io/cookbook/v/alfresco-webserver.svg)](https://github.com/Alfresco/chef-alfresco-webserver)
+
 
 This cookbook will install the WebServer part of the Alfresco stack.
 The default choice is NginX, but it can be expanded to use your own webserver.
