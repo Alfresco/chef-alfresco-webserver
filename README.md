@@ -27,21 +27,12 @@ The default choice is NginX, but it can be expanded to use your own webserver.
 
 ## Usage
 
-Include the hardening cookbook as dependency in your Berksfile:
-
-
-```
-cookbook 'nginx-hardening', git: 'https://github.com/dev-sec/chef-nginx-hardening' (only if you want hardening)
-```
-And add the reference of this cookbook inside your `metadata.rb` file:
+Just add the reference of this cookbook inside your `metadata.rb` file:
 
 ```
-depends 'alfresco-webserver', '~> v0.7.2'
-depends 'nginx-hardening' (only if you want hardening)
+depends 'alfresco-webserver', '~> v0.7.3'
 ```
 
-
-### chef-alfresco-webserver::default
 
 The cookbook is divided in 2 recipes:
 
