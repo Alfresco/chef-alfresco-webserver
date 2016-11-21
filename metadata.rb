@@ -9,6 +9,9 @@ issues_url       'https://github.com/Alfresco/chef-alfresco-webserver/issues'
 source_url       'https://github.com/Alfresco/chef-alfresco-webserver'
 version          '0.7.2'
 
+supports 'centos', '>= 7.0'
+supports 'redhat', '>= 7.0'
+
 depends 'nginx', '~> 2.7.6'
 depends 'netstat', '~> 0.1.0'
 depends 'nginx-hardening', '~> 1.1.0'
