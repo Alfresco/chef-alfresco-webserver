@@ -1,7 +1,7 @@
 # 0.7.3
 
-- Removed the nginx-hardening cookbook from Berksfile, as it has been [published](https://supermarket.chef.io/cookbooks/nginx-hardening) on the public supermarket
-- Added coveralls support and flare on the README.md
+- Removed the nginx-hardening cookbook from Berksfile, as it has been [published](https://supermarket.chef.io/cookbooks/nginx-hardening) on the public supermarket ( 62795ff )
+- Added coveralls support and flare on the README.md ( 19613b4 )
 
 # 0.7.2
 
