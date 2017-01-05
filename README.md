@@ -30,7 +30,7 @@ The default choice is NginX, but it can be expanded to use your own webserver.
 Just add the reference of this cookbook inside your `metadata.rb` file:
 
 ```
-depends 'alfresco-webserver', '~> v0.7.3'
+depends 'alfresco-webserver', '~> v0.7.4'
 ```
 
 
