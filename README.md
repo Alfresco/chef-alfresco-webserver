@@ -18,11 +18,11 @@ The default choice is NginX, but it can be expanded to use your own webserver.
 | default['webserver']['lb_hostname'] | String | Hostname/Address of the internal load-balancer  | 127.0.0.1  |
 | default['webserver']['lb_protocol'] | String  |  Protocol used to talk to the internal load-balancer |  http |
 | default['webserver']['lb_port'] | Int  | Port of the internal load-balancer | 9001 |
-| default['webserver']['use_nossl_config']  | Boolean  | Wheter to avoid or use ssl |  localhost |
+| default['webserver']['use_nossl_config']  | Boolean  | Wheter to avoid or use ssl |  true |
 | default['webserver']['certs']['filename']  | String  | SSL Certs filename  |  alfresco |
 | default['webserver']'certs']['ssl_folder']| String | Folder where the SSL certs will be stored  | /etc/pki/tls/certs  |
 | default['webserver']['error_pages']['error_folder'] | String  |  Where the error pages will be stored |  /var/www/html/error_pages |
-| default['webserver']['harden'] | Boolean  | Weter you want this installation to be hardened or no | true |
+| default['webserver']['apply_hardening'] | Boolean  | Weter you want this installation to be hardened or no | true |
 
 
 ## Usage
@@ -30,7 +30,7 @@ The default choice is NginX, but it can be expanded to use your own webserver.
 Just add the reference of this cookbook inside your `metadata.rb` file:
 
 ```
-depends 'alfresco-webserver', '~> v0.7.3'
+depends 'alfresco-webserver', '~> v0.7.4'
 ```
 
 

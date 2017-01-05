@@ -114,7 +114,7 @@ default['nginx']['ssl_server_proxy']['ssl_stapling'] = 'on'
 default['nginx']['ssl_server_proxy']['ssl_stapling_verify'] = 'on'
 default['nginx']['ssl_server_proxy']['ssl_protocols'] = 'TLSv1 TLSv1.1 TLSv1.2'
 
-default['nginx']['ssl_server_proxy']['ssl_dhparam'] = "#{node['nginx']['ssl_folder']}/#{node['nginx']['filename']}.dhparam"
+default['nginx']['ssl_server_proxy']['ssl_dhparam'] = "#{node['nginx']['ssl_folder']}/#{node['nginx']['ssl_filename']}.dhparam"
 
 # Use Intermediate Cipher Compatibility
 # https://wiki.mozilla.org/Security/Server_Side_TLS#Intermediate_compatibility_.28default.29
