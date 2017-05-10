@@ -9,6 +9,8 @@ issues_url       'https://github.com/Alfresco/chef-alfresco-webserver/issues'
 source_url       'https://github.com/Alfresco/chef-alfresco-webserver'
 version          '0.7.4'
 
+chef_version '~> 12' if respond_to?(:chef_version)
+
 supports 'centos', '>= 7.0'
 supports 'redhat', '>= 7.0'
 
