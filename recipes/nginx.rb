@@ -14,6 +14,7 @@ include_recipe 'nginx::default'
 execute 'selinux-command-httpd' do
   command 'semanage permissive -a httpd_t'
   not_if 'semanage permissive -l | grep httpd_t'
+  only_if 'getenforce | grep -i enforcing'
   only_if 'which semanage'
 end
 

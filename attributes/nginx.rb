@@ -88,7 +88,7 @@ default['nginx']['server']['proxy']['locations']['/']['proxy_set_headers'] = [
   'Host $host',
   'X-Real-IP $remote_addr',
   'X-Forwarded-For $proxy_add_x_forwarded_for',
-  'X-Forwarded-Proto $scheme'
+  'X-Forwarded-Proto $scheme',
 ]
 default['nginx']['server']['proxy']['locations']['/']['proxy_pass'] = "#{node['webserver']['lb_protocol']}://#{node['nginx']['proxy_hostname']}:#{node['nginx']['proxy_port']}"
 # Set files larger than 1M to stream rather than cache

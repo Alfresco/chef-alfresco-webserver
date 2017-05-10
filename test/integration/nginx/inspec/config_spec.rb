@@ -1,7 +1,7 @@
 nginx_conf = '/etc/nginx/nginx.conf'
 
 options = {
-  assignment_re: /^\s*([^:]*?)\s*\ \s*(.*?)\s*;$/
+  assignment_re: /^\s*([^:]*?)\s*\ \s*(.*?)\s*;$/,
 }
 
 control 'nginx-11' do
