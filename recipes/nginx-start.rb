@@ -13,7 +13,6 @@ end
 include_recipe 'nginx::commons_conf'
 include_recipe 'nginx-hardening::default' if node['webserver']['apply_hardening']
 
-service_actions = [:enable, :start]
 service 'nginx' do
-  action service_actions
+  action node['nginx']['service']['actions']
 end

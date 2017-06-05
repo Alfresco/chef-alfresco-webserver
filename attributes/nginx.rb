@@ -126,3 +126,4 @@ default['nginx']['ssl_server_proxy']['ssl_session_cache'] = 'shared:SSL:25m'
 default['nginx']['ssl_server_proxy']['ssl_session_timeout'] = '10m'
 default['nginx']['ssl_server_proxy']['ssl_buffer_size'] = '1400'
 default['nginx']['ssl_server_proxy']['ssl_session_tickets'] = 'off'
+default['nginx']['service']['actions'] = [:enable, :start]
