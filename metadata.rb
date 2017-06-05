@@ -7,7 +7,7 @@ long_description 'Installs and Configures the webserver part of the chef-alfresc
 
 issues_url       'https://github.com/Alfresco/chef-alfresco-webserver/issues'
 source_url       'https://github.com/Alfresco/chef-alfresco-webserver'
-version          '0.7.5'
+version          '0.7.6'
 
 chef_version '~> 12' if respond_to?(:chef_version)
 
