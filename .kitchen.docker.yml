@@ -1,33 +1,28 @@
-# When editing this file, remember that http://www.yamllint.com is your friend :-)
 ---
 driver:
   name: docker
   use_sudo: false
-
 provisioner:
   name: chef_zero
   require_chef_omnibus: 12.19.36
-
 verifier:
   name: inspec
-
 platforms:
-  - name: centos-7
-    driver_config:
-      image: centos:7
-      platform: centos
-      run_command: /usr/sbin/init
-      privileged: true
-      forward:
-      - 80:80
-
+- name: centos-7
+  driver_config:
+    image: centos:7
+    platform: centos
+    run_command: "/usr/sbin/init"
+    privileged: true
+    forward:
+    - 80:80
 suites:
-  - name: nginx
-    run_list:
-      - recipe[netstat]
-      - recipe[alfresco-webserver::default]
-      - recipe[alfresco-webserver::start]
-    verifier:
-      inspec_tests:
-        - name: nginx-hardening
-          git: https://github.com/Alfresco/tests-nginx-hardening
+- name: nginx
+  run_list:
+  - recipe[netstat]
+  - recipe[alfresco-webserver::default]
+  - recipe[alfresco-webserver::start]
+  verifier:
+    inspec_tests:
+    - name: nginx-hardening
+      git: https://github.com/Alfresco/tests-nginx-hardening
